@@ -40,14 +40,14 @@
             var tea = form["tea"].value;
             var details = form["details"].value;
             var user = {
+                name: fullname,
                 email: email, 
-                name: fullname, 
                 tea: tea, 
                 details: details
             };
             analytics.identify('1234', {
-                email: email, 
-                name: fullname
+                name: fullname,
+                email: email
             });
             analytics.track('tea submitted', user, function() {
                 window.location.href = "";
