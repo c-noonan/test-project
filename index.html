@@ -49,9 +49,11 @@
                 name: fullname,
                 email: email
             });
-            analytics.track('tea submitted', user, function() {
-                window.location.href = "";
-            });
+            analytics.track('tea submitted', 
+                user, 
+                // function() {
+                // window.location.href = "";}
+            );
           }
         </script>
         
