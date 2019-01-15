@@ -11,9 +11,49 @@
     </head>
     <body>
         
-        <p>
-            Hello World!
-        </p>
+        <h3>
+            What's your favorite tea?
+        </h3>
 
+        <form name="tea" onsubmit="identify(event)">
+            What is your favorite tea?
+           <input name="tea" required="" size="81" type="text"/> 
+           <br><br><br> 
+           Any thing you want to add (ingredients you put in it, brands or subsequent types)? 
+           <br><br> 
+           <textarea cols="81" name="details" required="" rows="10">
+           </textarea> 
+           <br><br> 
+           Name: <input name="fullname" required="" size="75" type="text"/> 
+           <br><br> 
+           Email: <input name="email" required="" size="75" type="email"/> 
+           <br><br>
+           <input name="submit" type="submit" value="submit"/>
+       </form> 
+        
+        <script type="text/javascript">
+          function identify(e){
+            e.preventDefault();
+            var form = e.target;
+            var email = form["email"].value;
+            var fullname = form["fullname"].value;
+            var tea = form["tea"].value;
+            var details = form["details"].value;
+            var user = {
+                email: email, 
+                name: fullname, 
+                tea: tea, 
+                details: details
+            };
+            analytics.identify('1234', {
+                email: email, 
+                name: fullname
+            });
+            analytics.track('tea submitted', user, function() {
+                window.location.href = "";
+            });
+          }
+        </script>
+        
     </body>
 </html>
